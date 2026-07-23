@@ -6,3 +6,5 @@ export type SectionId =
   | 'experience'
   | 'education'
   | 'contact';
+
+export type Theme = 'light' | 'dark';
