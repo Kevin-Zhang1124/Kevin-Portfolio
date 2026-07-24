@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './styles/global.css'
 import App from './App.tsx'
 import { ThemeProvider } from './app/ThemeProvider.tsx';
+import { LocaleProvider } from './app/LocaleProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <App />
+      <LocaleProvider>
+        <App />
+      </LocaleProvider>
     </ThemeProvider>
   </StrictMode>,
 )
