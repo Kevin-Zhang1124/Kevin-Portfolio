@@ -24,9 +24,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--text);
-  /* Atmosphere gradient + base color from tokens */
-  background: var(--bg-atmosphere);
-  background-attachment: fixed; /* gradient stays put while scrolling */
+  background: var(--bg); /* living atmosphere comes from BackgroundFX */
   transition: var(--transition-theme);
 }
 
