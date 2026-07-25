@@ -22,7 +22,9 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--text);
-  background: var(--bg);
+  /* Atmosphere gradient + base color from tokens */
+  background: var(--bg-atmosphere);
+  background-attachment: fixed; /* gradient stays put while scrolling */
   transition: var(--transition-theme);
 }
 
