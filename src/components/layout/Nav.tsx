@@ -1,7 +1,8 @@
-import { sections } from '../../content/shared/sections'
-import { useLocale } from '../../hooks/useLocale'
-import { useTheme } from '../../hooks/useTheme'
-import styles from './Nav.module.css'
+import { sections } from '../../content/shared/sections';
+import { useLocale } from '../../hooks/useLocale';
+import { useTheme } from '../../hooks/useTheme';
+import { useActiveSection } from '../../hooks/useActiveSection';
+import styles from './Nav.module.css';
 
 /**
  * Sticky top navigation:
@@ -12,6 +13,8 @@ export function Nav() {
   const { t, toggleLocale } = useLocale();
   // theme is 'light' | 'dark'; toggleTheme flips it (and persists via ThemeProvider)
   const { theme, toggleTheme } = useTheme();
+  // Which section is currently in view (from scroll spy hook)
+  const activeId = useActiveSection();
 
   return (
     <header className={styles.header}>
@@ -23,14 +26,27 @@ export function Nav() {
 
         {/* Build links from config so order stays in sync with the page */}
         <ul className={styles.links}>
-          {sections.map((section) => (
-            <li key={section.id}>
-              <a className={styles.link} href={`#${section.id}`}>
-                {/* e.g. section.labelKey === 'navWork' → t.navWork */}
-                {t[section.labelKey]}
-              </a>
-            </li>
-          ))}
+          {sections.map((section) => {
+            // true when this link matches the section currently in view
+            const isActive = activeId === section.id;
+
+            return (
+              <li key={section.id}>
+                <a
+                  className={
+                    isActive
+                      ? `${styles.link} ${styles.linkActive}`
+                      : styles.link
+                  }
+                  href={`#${section.id}`}
+                  // Helps screen readers know the current page section
+                  aria-current={isActive ? 'true' : undefined}
+                >
+                  {t[section.labelKey]}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <div className={styles.controls}>
@@ -42,7 +58,6 @@ export function Nav() {
               theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
             }
           >
-            {/* Show the mode you will switch TO */}
             {theme === 'light' ? t.toggleThemeToDark : t.toggleThemeToLight}
           </button>
 
@@ -57,5 +72,5 @@ export function Nav() {
         </div>
       </nav>
     </header>
-  )
+  );
 }
