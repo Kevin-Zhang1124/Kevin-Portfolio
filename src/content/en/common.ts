@@ -15,4 +15,7 @@ export const enCommon = {
   navWork: 'Work',
   navProject: 'Project',
   navContact: 'Contact',
+
+  // Project section
+  projectLink: 'Link',
 } as const;

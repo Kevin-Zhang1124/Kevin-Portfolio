@@ -21,7 +21,7 @@ export function Project() {
               {/* Only render link if provided */}
               {item.link ? (
                 <a href={item.link} target="_blank" rel="noreferrer">
-                  Link
+                  {t.projectLink}
                 </a>
               ) : null}
             </div>

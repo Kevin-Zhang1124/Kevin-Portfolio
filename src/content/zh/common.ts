@@ -11,5 +11,7 @@ export const zhCommon = {
   navEducation: '教育',
   navWork: '工作',
   navProject: '项目',
-  navContact: '联系',
+  navContact: '联系', 
+
+  projectLink: '链接',
 } as const
