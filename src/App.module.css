@@ -1,0 +1,6 @@
+/* Centers the single content column */
+.main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3) var(--space-6);
+}

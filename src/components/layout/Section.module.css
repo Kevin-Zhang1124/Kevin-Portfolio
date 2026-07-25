@@ -1,0 +1,11 @@
+/* Vertical padding for each block in the one-column layout */
+.section {
+  padding: var(--space-6) 0;
+  /* Offset so sticky nav doesn't cover the section title on #hash jumps */
+  scroll-margin-top: 5rem;
+}
+
+/* Hairline between sections — not a "card", just separation */
+.section + .section {
+  border-top: 1px solid var(--border);
+}

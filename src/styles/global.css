@@ -8,6 +8,7 @@
 
 html {
   color-scheme: light;
+  scroll-behavior: smooth; /* soft jump when clicking nav #links */
 }
 
 html[data-theme='dark'] {
