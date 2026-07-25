@@ -1,0 +1,33 @@
+/* Top-of-page identity block */
+.hero {
+  margin-bottom: var(--space-5);
+}
+
+/* Brand name — largest type on the site */
+.name {
+  margin: 0 0 var(--space-3);
+  font-size: clamp(2.4rem, 6vw, 3.6rem); /* scales between mobile and desktop */
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* One-line role / positioning under the name */
+.tagline {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+/* "About" heading under the hero */
+.aboutHeading {
+  margin: 0 0 var(--space-3);
+}
+
+/* Longer bio paragraph */
+.body {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 40rem;
+}
