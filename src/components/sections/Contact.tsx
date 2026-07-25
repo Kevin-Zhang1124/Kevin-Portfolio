@@ -1,16 +1,27 @@
 import { Section } from '../layout/Section'
 import { useLocale } from '../../hooks/useLocale'
+import { useContent } from '../../hooks/useContent'
+import styles from './sections.module.css'
 
-/** Contact / links placeholder */
+/** Renders contact methods for the active locale */
 export function Contact() {
-  const { t } = useLocale()
+  const { t } = useLocale();
+  const { contact } = useContent();
 
   return (
     <Section id="contact">
       <h2>{t.navContact}</h2>
-      <p style={{ color: 'var(--text-muted)' }}>
-        Placeholder contact section.
-      </p>
+      
+      <ul className={styles.contactList}>
+        {contact.map((item) => (
+          <li key={item.id}>
+            <span style={{ color: 'var(--text-muted)' }}>{item.label}</span>
+            <a className={styles.contactLink} href={item.href}>
+              {item.value}
+            </a>
+          </li>
+        ))}
+      </ul>
     </Section>
   )
 }
