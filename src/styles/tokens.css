@@ -1,17 +1,24 @@
-:root,
-[data-theme='light'] {
-  --bg: #f3f1ec;
-  --bg-elevated: #faf9f6;
-  --text: #2c2a26;
-  --text-muted: #6a6560;
-  --border: #ddd8d0;
-  --accent: #2f6f6a;
-  --accent-soft: rgba(47, 111, 106, 0.12);
-  --focus: #2f6f6a;
+/**
+ * Signal Mesh design tokens (dark-only for v1).
+ * Electric cyan on graphite — AI/tech, not space/purple.
+ */
+ :root {
+  /* Surfaces */
+  --bg: #070b12;
+  --bg-elevated: #0e1522;
+  --text: #e8eef7;
+  --text-muted: #8b9bb0;
+  --border: #1c2738;
+  --accent: #3de0c5; /* signal cyan */
+  --accent-soft: rgba(61, 224, 197, 0.14);
+  --focus: #3de0c5;
 
-  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
-  --font-body: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  /* Type */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
 
+  /* Spacing (unchanged scale) */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 1rem;
@@ -20,27 +27,25 @@
   --space-6: 4rem;
 
   --content-width: 42rem;
-  --radius: 2px;
+  --radius: 4px;
   --transition-theme: background-color 0.25s ease, color 0.25s ease,
     border-color 0.25s ease;
 
-  /* Soft wash behind content — gives depth without a busy pattern */
+  /**
+   * Static atmosphere for now (animated mesh comes in a later step).
+   * Cyan wash top + cooler blue side glow on deep graphite.
+   */
   --bg-atmosphere:
-  radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft), transparent 55%),
-  var(--bg);
+    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(61, 224, 197, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 20%, rgba(56, 120, 255, 0.12), transparent 50%),
+    var(--bg);
 }
 
+/**
+ * Keep data-theme hooks so ThemeProvider doesn't break.
+ * Both map to the same Signal Mesh palette (dark-only v1).
+ */
+[data-theme='light'],
 [data-theme='dark'] {
-  --bg: #16181c;
-  --bg-elevated: #1e2126;
-  --text: #e8e4dc;
-  --text-muted: #9a958c;
-  --border: #2f343c;
-  --accent: #6fb5ae;
-  --accent-soft: rgba(111, 181, 174, 0.16);
-  --focus: #6fb5ae;
-
-  --bg-atmosphere:
-  radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft), transparent 55%),
-  var(--bg);
+  color-scheme: dark;
 }

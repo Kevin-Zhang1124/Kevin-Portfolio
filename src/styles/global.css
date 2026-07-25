@@ -7,10 +7,12 @@
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
   scroll-behavior: smooth; /* soft jump when clicking nav #links */
 }
 
+/* data-theme rules can stay, or simplify to: */
+html[data-theme='light'],
 html[data-theme='dark'] {
   color-scheme: dark;
 }
@@ -36,9 +38,10 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 550;
+  font-weight: 600;
   line-height: 1.15;
   color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 a {
