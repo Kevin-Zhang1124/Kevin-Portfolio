@@ -2,8 +2,6 @@ import type { SkillId } from '../../types'
 
 export type SkillMeta = {
   label: string
-  /** Optional path or asset key — fill in when you add icons */
-  icon?: string
 }
 
 export const skills: Record<SkillId, SkillMeta> = {
@@ -30,9 +28,7 @@ export const skills: Record<SkillId, SkillMeta> = {
   ios: { label: 'iOS' },
   linux: { label: 'Linux' },
   macos: { label: 'macOS' },
-  windows: { label: 'Windows' },
   bash: { label: 'Bash' },
-  powershell: { label: 'PowerShell' },
   git: { label: 'Git' },
   docker: { label: 'Docker' },
   firebase: { label: 'Firebase' },
