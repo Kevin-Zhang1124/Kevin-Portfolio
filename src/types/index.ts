@@ -24,14 +24,16 @@ export type EducationItem = {
 /** One job / internship entry */
 export type WorkItem = {
   id: string;
-  company: string;
+  /** Links to shared company logo metadata */
+  companyId: 'compass' | 'squint' | 'emdoor';
+  company: string; // localized display name
   role: string;
   location: string;
   start: string;
   end: string;
   bullets: string[];
-  tech: SkillId[]
-}
+  tech: SkillId[];
+};
 
 /** One project entry */
 export type ProjectItem = {

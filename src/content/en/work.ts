@@ -5,6 +5,7 @@ export const enWork: WorkItem[] = [
   /** Compass Digital */
   {
     id: 'work-1',
+    companyId: 'compass',
     company: 'Compass Digital',
     role: 'Mobile Developer Intern',
     location: 'Toronto, ON, Canada',
@@ -21,6 +22,7 @@ export const enWork: WorkItem[] = [
   /** Squint Cognition */
   {
     id: 'work-2',
+    companyId: 'squint',
     company: 'Squint Cognition',
     role: 'Machine Learning Software Developer',
     location: 'Waterloo, ON, Canada',
@@ -37,6 +39,7 @@ export const enWork: WorkItem[] = [
   /** Emdoor Digital Technology Co., Ltd. */
   {
     id: 'work-3',
+    companyId: 'emdoor',
     company: 'Emdoor Digital Technology Co., Ltd.',
     role: 'Software Engineer',
     location: 'Shenzhen, China',

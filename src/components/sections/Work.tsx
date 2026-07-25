@@ -1,11 +1,13 @@
 import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
+import { companies } from '../../content/shared/companies';
 import { SkillIcon } from '../ui/SkillIcon';
 import { SectionHeading } from '../ui/SectionHeading';
-import styles from './sections.module.css';
+import sectionStyles from './sections.module.css';
+import styles from './Work.module.css';
 
-/** Renders work experience for the active locale */
+/** Mobile-first work timeline: logo rail + panel content */
 export function Work() {
   const { t } = useLocale();
   const { work } = useContent();
@@ -17,33 +19,53 @@ export function Work() {
         title={t.navWork}
       />
 
-      <ul className={styles.list}>
-        {work.map((item) => (
-          <li key={item.id}>
-            <div className={styles.itemHeader}>
-              <h3 className={styles.itemTitle}>
-                {item.role} · {item.company}
-              </h3>
-              <p className={styles.itemMeta}>
-                {item.start} - {item.end}
-              </p>
-            </div>
-            <p className={styles.itemMeta}>{item.location}</p>
-            <ul className={styles.bullets}>
-              {item.bullets.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-            <ul className={styles.tech}>
-              {item.tech.map((skillId) => (
-                <li key={skillId} className={styles.techItem}>
-                  {/* Icon-only tech tag; hover shows the label via title */}
-                  <SkillIcon id={skillId} />
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
+      <ul className={styles.timeline}>
+        {work.map((item) => {
+          const companyMeta = companies[item.companyId];
+
+          return (
+            <li key={item.id} className={styles.entry}>
+              {/* Logo node + connecting line */}
+              <div className={styles.rail} aria-hidden="true">
+                <div className={styles.logoWrap}>
+                  <img
+                    className={styles.logo}
+                    src={companyMeta.logoSrc}
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              {/* Job details in a soft panel */}
+              <article className={styles.panel}>
+                <h3 className={styles.role}>{item.role}</h3>
+
+                <div className={styles.metaRow}>
+                  <p className={styles.company}>{item.company}</p>
+                  <p className={styles.dates}>
+                    {item.start} - {item.end}
+                  </p>
+                </div>
+
+                <p className={styles.location}>{item.location}</p>
+
+                <ul className={sectionStyles.bullets}>
+                  {item.bullets.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+
+                <ul className={sectionStyles.tech}>
+                  {item.tech.map((skillId) => (
+                    <li key={skillId} className={sectionStyles.techItem}>
+                      <SkillIcon id={skillId} />
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </li>
+          );
+        })}
       </ul>
     </Section>
   );

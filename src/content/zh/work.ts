@@ -4,6 +4,7 @@ export const zhWork: WorkItem[] = [
   /** Compass Digital */
   {
     id: 'work-1',
+    companyId: 'compass',
     company: 'Compass Digital',
     role: '移动应用开发实习生',
     location: '多伦多, 安大略， 加拿大',
@@ -20,6 +21,7 @@ export const zhWork: WorkItem[] = [
   /** Squint Cognition */
   {
     id: 'work-2',
+    companyId: 'squint',
     company: 'Squint Cognition',
     role: '机器学习软件开发工程师',
     location: '滑铁卢, 安大略, 加拿大',
@@ -36,6 +38,7 @@ export const zhWork: WorkItem[] = [
   /** Emdoor Digital Technology Co., Ltd. */
   {
     id: 'work-3',
+    companyId: 'emdoor',
     company: '深圳市亿道数码科技有限公司',
     role: '软件工程师',
     location: '深圳, 中国',
