@@ -1,8 +1,8 @@
-import { Section } from '../layout/Section'
-import { useLocale } from '../../hooks/useLocale'
-import { useContent } from '../../hooks/useContent'
-import { skills } from '../../content/shared/skills'
-import styles from './sections.module.css'
+import { Section } from '../layout/Section';
+import { useLocale } from '../../hooks/useLocale';
+import { useContent } from '../../hooks/useContent';
+import { SkillIcon } from '../ui/SkillIcon';
+import styles from './sections.module.css';
 
 /** Renders work experience for the active locale */
 export function Work() {
@@ -12,7 +12,7 @@ export function Work() {
   return (
     <Section id="work">
       <h2>{t.navWork}</h2>
-      
+
       <ul className={styles.list}>
         {work.map((item) => (
           <li key={item.id}>
@@ -21,7 +21,7 @@ export function Work() {
                 {item.role} · {item.company}
               </h3>
               <p className={styles.itemMeta}>
-                {item.start} – {item.end}
+                {item.start} - {item.end}
               </p>
             </div>
             <p className={styles.itemMeta}>{item.location}</p>
@@ -33,8 +33,8 @@ export function Work() {
             <ul className={styles.tech}>
               {item.tech.map((skillId) => (
                 <li key={skillId} className={styles.techItem}>
-                  {/* SkillId → display label from shared/skills.ts */}
-                  {skills[skillId].label}
+                  {/* Icon-only tech tag; hover shows the label via title */}
+                  <SkillIcon id={skillId} />
                 </li>
               ))}
             </ul>
@@ -42,5 +42,5 @@ export function Work() {
         ))}
       </ul>
     </Section>
-  )
+  );
 }
