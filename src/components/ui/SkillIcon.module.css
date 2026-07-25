@@ -1,0 +1,15 @@
+/* Icon-only chip; color follows text/accent from parent or this rule */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  line-height: 0;
+}
+
+.icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  /* Many simple-icons use fill; currentColor tracks CSS color */
+  fill: currentColor;
+}
