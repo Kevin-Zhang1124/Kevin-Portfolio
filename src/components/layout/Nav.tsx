@@ -1,18 +1,16 @@
 import { sections } from '../../content/shared/sections';
 import { useLocale } from '../../hooks/useLocale';
-import { useTheme } from '../../hooks/useTheme';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import styles from './Nav.module.css';
 
 /**
  * Sticky top navigation:
- * brand | section links | theme + language toggles
+ * brand | section links | language toggle
+ * (Theme is dark-only for Signal Mesh — no light/dark switch.)
  */
 export function Nav() {
   // t = translated strings for the active locale
   const { t, toggleLocale } = useLocale();
-  // theme is 'light' | 'dark'; toggleTheme flips it (and persists via ThemeProvider)
-  const { theme, toggleTheme } = useTheme();
   // Which section is currently in view (from scroll spy hook)
   const activeId = useActiveSection();
 
@@ -39,7 +37,6 @@ export function Nav() {
                       : styles.link
                   }
                   href={`#${section.id}`}
-                  // Helps screen readers know the current page section
                   aria-current={isActive ? 'true' : undefined}
                 >
                   {t[section.labelKey]}
@@ -50,17 +47,7 @@ export function Nav() {
         </ul>
 
         <div className={styles.controls}>
-          <button
-            type="button"
-            className={styles.controlButton}
-            onClick={toggleTheme}
-            aria-label={
-              theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
-            }
-          >
-            {theme === 'light' ? t.toggleThemeToDark : t.toggleThemeToLight}
-          </button>
-
+          {/* Language only — dark theme is fixed for Signal Mesh */}
           <button
             type="button"
             className={styles.controlButton}

@@ -6,8 +6,6 @@ export const enCommon = {
 
   // Controls in the nav
   toggleLanguage: '中文',
-  toggleThemeToDark: 'Dark',   // label when currently in light mode
-  toggleThemeToLight: 'Light', // label when currently in dark mode
 
   // Nav section labels (must match SectionId keys we use in config)
   navAbout: 'About',

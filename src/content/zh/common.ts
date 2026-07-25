@@ -4,8 +4,6 @@ export const zhCommon = {
   tagline: '软件工程师，专注清晰、有思考的产品。',
 
   toggleLanguage: 'EN',
-  toggleThemeToDark: '深色',
-  toggleThemeToLight: '浅色',
 
   navAbout: '关于',
   navEducation: '教育',
