@@ -38,7 +38,7 @@ export type ProjectItem = {
   id: string;
   name: string;
   summary: string;
-  tech: string[];
+  tech: SkillId[];
   link?: string;  // optional URL
 }
 
