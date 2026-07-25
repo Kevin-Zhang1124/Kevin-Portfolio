@@ -12,4 +12,10 @@ export const zhCommon = {
   navContact: '联系', 
 
   projectLink: '链接',
+
+  eyebrowAbout: '简介',
+  eyebrowEducation: '学习轨迹',
+  eyebrowWork: '职业信号',
+  eyebrowProject: '构建记录',
+  eyebrowContact: '联系',
 } as const

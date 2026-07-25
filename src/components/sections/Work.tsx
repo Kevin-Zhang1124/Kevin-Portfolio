@@ -2,6 +2,7 @@ import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
 import { SkillIcon } from '../ui/SkillIcon';
+import { SectionHeading } from '../ui/SectionHeading';
 import styles from './sections.module.css';
 
 /** Renders work experience for the active locale */
@@ -11,7 +12,10 @@ export function Work() {
 
   return (
     <Section id="work">
-      <h2>{t.navWork}</h2>
+      <SectionHeading
+        eyebrow={t.eyebrowWork}
+        title={t.navWork}
+      />
 
       <ul className={styles.list}>
         {work.map((item) => (

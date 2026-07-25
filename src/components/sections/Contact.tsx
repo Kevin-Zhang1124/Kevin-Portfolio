@@ -1,6 +1,7 @@
 import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
+import { SectionHeading } from '../ui/SectionHeading';
 import styles from './sections.module.css';
 
 /** Renders contact methods for the active locale */
@@ -10,7 +11,10 @@ export function Contact() {
 
   return (
     <Section id="contact">
-      <h2>{t.navContact}</h2>
+      <SectionHeading
+        eyebrow={t.eyebrowContact}
+        title={t.navContact}
+      />
       
       <ul className={styles.contactList}>
         {contact.map((item) => (

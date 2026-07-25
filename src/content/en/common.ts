@@ -16,4 +16,11 @@ export const enCommon = {
 
   // Project section
   projectLink: 'Link',
+
+  // Section eyebrows (small label above the main title)
+  eyebrowAbout: 'PROFILE',
+  eyebrowEducation: 'LEARNING PATH',
+  eyebrowWork: 'CAREER SIGNAL',
+  eyebrowProject: 'BUILD LOG',
+  eyebrowContact: 'CONNECT',
 } as const;

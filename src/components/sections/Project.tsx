@@ -2,6 +2,7 @@ import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
 import { SkillIcon } from '../ui/SkillIcon';
+import { SectionHeading } from '../ui/SectionHeading';
 import styles from './sections.module.css';
 
 /** Renders projects for the active locale */
@@ -11,7 +12,10 @@ export function Project() {
 
   return (
     <Section id="project">
-      <h2>{t.navProject}</h2>
+      <SectionHeading
+        eyebrow={t.eyebrowProject}
+        title={t.navProject}
+      />
 
       <ul className={styles.list}>
         {project.map((item) => (

@@ -1,6 +1,7 @@
 import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
+import { SectionHeading } from '../ui/SectionHeading';
 import styles from './About.module.css';
 
 /**
@@ -19,7 +20,10 @@ export function About() {
       </div>
 
       {/* About copy */}
-      <h2 className={styles.aboutHeading}>{t.navAbout}</h2>
+      <SectionHeading
+        eyebrow={t.eyebrowAbout}
+        title={t.navAbout}
+      />
       <p className={styles.body}>{content.about.body}</p>
     </Section>
   );
