@@ -72,3 +72,17 @@
 .contactLink:hover {
   text-decoration: underline;
 }
+
+/* One contact row: label + link */
+.contactRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+/* "Email", "LinkedIn", etc. */
+.contactLabel {
+  color: var(--text-muted);
+  min-width: 5.5rem; /* keeps links roughly aligned in a column */
+}

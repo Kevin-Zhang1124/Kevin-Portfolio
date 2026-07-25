@@ -1,7 +1,7 @@
-import { Section } from '../layout/Section'
-import { useLocale } from '../../hooks/useLocale'
-import { useContent } from '../../hooks/useContent'
-import styles from './sections.module.css'
+import { Section } from '../layout/Section';
+import { useLocale } from '../../hooks/useLocale';
+import { useContent } from '../../hooks/useContent';
+import styles from './sections.module.css';
 
 /** Renders contact methods for the active locale */
 export function Contact() {
@@ -14,8 +14,9 @@ export function Contact() {
       
       <ul className={styles.contactList}>
         {contact.map((item) => (
-          <li key={item.id}>
-            <span style={{ color: 'var(--text-muted)' }}>{item.label}</span>
+          <li key={item.id} className={styles.contactRow}>
+            {/* Label stays muted; link uses accent via .contactLink */}
+            <span className={styles.contactLabel}>{item.label}</span>
             <a className={styles.contactLink} href={item.href}>
               {item.value}
             </a>
@@ -23,5 +24,5 @@ export function Contact() {
         ))}
       </ul>
     </Section>
-  )
+  );
 }
