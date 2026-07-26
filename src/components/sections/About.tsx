@@ -23,7 +23,12 @@ export function About() {
       <div className={styles.hero}>
         {/* Text block: name + typing line */}
         <div className={styles.copy}>
+          {/* Quiet intro — not a heading; name stays the brand */}
+          <p className={styles.greeting}>{t.heroGreeting}</p>
+
+          {/* Brand name — largest type on the site */}
           <h1 className={styles.name}>{t.brandName}</h1>
+
           <TypeLine
             lines={t.taglines}
             className={styles.tagline}

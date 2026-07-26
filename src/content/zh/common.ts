@@ -2,6 +2,9 @@
 export const zhCommon = {
   brandName: '张凯文',
 
+  // 大号姓名上方的短问候语
+  heroGreeting: '你好，我是',
+
   taglines: [
     '滑铁卢大学计算机学生',
     '软件开发与机器学习',

@@ -3,6 +3,9 @@ export const enCommon = {
   // Site identity
   brandName: 'Kevin Zhang',
 
+  // Small intro above the big name (hero only)
+  heroGreeting: 'Hi, my name is',
+
   // Hero lines for the typing loop
   taglines: [
     'CS student at UWaterloo',
