@@ -50,6 +50,9 @@ export function About() {
             height={200}
           />
         </div>
+
+        {/* Quiet cue: more content (About) is below the fold */}
+        <p className={styles.scrollHint}>{t.scrollHint}</p>
       </div>
 
       {/* About heading */}

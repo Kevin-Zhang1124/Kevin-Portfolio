@@ -1,9 +1,17 @@
-/* Top-of-page identity block */
+/* Top-of-page identity — full first screen on phone + desktop */
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: var(--space-4);
-  margin-bottom: var(--space-5);
+  /* svh = stable mobile viewport; 5rem ≈ sticky nav */
+  min-height: calc(100svh - 5rem);
+  margin-bottom: var(--space-6);
+  box-sizing: border-box;
+  /* Extra top space so content clears the fixed nav on small screens */
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-4);
 }
 
 .copy {
@@ -57,6 +65,41 @@
   object-fit: cover;
   border-radius: 50%;
   background: var(--bg-elevated);
+}
+
+/* Bottom-of-hero cue — same job as a scroll pill, Signal Mesh style */
+.scrollHint {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-3);
+  transform: translateX(-50%);
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  animation: scrollHintPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollHintPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollHint {
+    animation: none;
+    opacity: 0.75;
+  }
 }
 
 /* Stack of about blocks */

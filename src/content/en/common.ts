@@ -6,6 +6,9 @@ export const enCommon = {
   // Small intro above the big name (hero only)
   heroGreeting: 'Hi, my name is',
 
+  // Hint under the hero — invites scroll to PROFILE / About
+  scrollHint: 'Scroll',
+
   // Hero lines for the typing loop
   taglines: [
     'CS student at UWaterloo',
