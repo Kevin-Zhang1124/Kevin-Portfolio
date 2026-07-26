@@ -9,8 +9,10 @@ type SkillIconProps = {
 };
 
 /**
- * Renders a tech skill as an icon only.
- * Label is exposed to assistive tech / hover via aria-label + title.
+ * Icon-only skill mark with:
+ * - accessible name
+ * - hover tooltip (skill label)
+ * - parent chip handles theme chrome + scale (sections.module.css)
  */
 export function SkillIcon({ id }: SkillIconProps) {
   // Human-readable name from the data registry
@@ -19,9 +21,16 @@ export function SkillIcon({ id }: SkillIconProps) {
   const Icon = skillIcons[id];
 
   return (
-    <span className={styles.icon} title={label} aria-label={label}>
-      {/* Decorative for screen readers because parent span has aria-label */}
-      <Icon aria-hidden="true" focusable="false" />
+    <span className={styles.wrap}>
+      {/* Visible icon; name comes from tooltip + aria-label */}
+      <span className={styles.icon} aria-label={label}>
+        <Icon aria-hidden="true" focusable="false" />
+      </span>
+
+      {/* Custom tooltip — clearer than browser title alone */}
+      <span className={styles.tooltip} role="tooltip">
+        {label}
+      </span>
     </span>
   );
 }
