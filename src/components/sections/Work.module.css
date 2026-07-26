@@ -57,7 +57,7 @@
 /* ----- Content panel (card-like, not a heavy card UI) ----- */
 .panel {
   min-width: 0; /* allow text truncation/wrapping in grid */
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   padding: var(--space-3);
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);

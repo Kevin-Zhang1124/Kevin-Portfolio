@@ -13,7 +13,7 @@ export const enAbout = {
       title: 'Who I am',
       // One or more short paragraphs under this title
       paragraphs: [
-        "👋 I'm a Computer Science student at the University of Waterloo, interested in softwware engineering, machine learning, and AI.",
+        "👋 I'm a Computer Science student at the University of Waterloo, interested in software engineering, machine learning, and AI.",
       ],
     },
     {
