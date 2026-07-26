@@ -2,6 +2,7 @@ import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
 import { SectionHeading } from '../ui/SectionHeading';
+import { TypeLine } from '../ui/TypeLine';
 import styles from './About.module.css';
 
 /**
@@ -16,7 +17,13 @@ export function About() {
       {/* Hero: name is the main brand signal */}
       <div className={styles.hero}>
         <h1 className={styles.name}>{t.brandName}</h1>
-        <p className={styles.tagline}>{t.taglines[0]}</p>
+        <TypeLine
+          lines={t.taglines}
+          className={styles.tagline}
+          typingMs={150}
+          deletingMs={40}
+          pauseMs={2000}
+        />
       </div>
 
       {/* About copy */}

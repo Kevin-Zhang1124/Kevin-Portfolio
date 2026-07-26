@@ -23,9 +23,9 @@ type Phase = 'typing' | 'deleting';
 export function TypeLine({
   lines,
   className,
-  typingMs = 40,
-  deletingMs = 24,
-  pauseMs = 3000,
+  typingMs = 40,    // default 40ms
+  deletingMs = 24,  // default 24ms
+  pauseMs = 3000,   // default 3000ms
 }: TypeLineProps) {
   const [lineIndex, setLineIndex] = useState(0);
   const [text, setText] = useState('');
