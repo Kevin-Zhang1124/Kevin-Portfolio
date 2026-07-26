@@ -59,11 +59,55 @@
   background: var(--bg-elevated);
 }
 
-/* Longer bio paragraph */
-.body {
-  margin: 0;
-  color: var(--text-muted);
+/* Stack of about blocks */
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
   max-width: 40rem;
+}
+
+/* One titled paragraph group */
+.block {
+  margin: 0;
+}
+
+/* Index marker + title on one line */
+.blockHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2);
+}
+
+.blockTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.blockBody {
+  margin: 0 0 var(--space-2);
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Last paragraph in a block: no extra bottom gap */
+.blockBody:last-child {
+  margin-bottom: 0;
+}
+
+/* Quiet closing under all blocks */
+.closing {
+  margin: var(--space-5) 0 0;
+  max-width: 40rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
 }
 
 /* Desktop: text left, photo right */

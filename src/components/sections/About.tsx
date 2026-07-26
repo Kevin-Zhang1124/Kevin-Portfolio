@@ -3,6 +3,8 @@ import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
 import { SectionHeading } from '../ui/SectionHeading';
 import { TypeLine } from '../ui/TypeLine';
+import { SignalMark } from '../ui/SignalMark';
+import { Reveal } from '../ui/Reveal';
 import styles from './About.module.css';
 
 /** Profile image in /public/profile.png */
@@ -50,12 +52,40 @@ export function About() {
         </div>
       </div>
 
-      {/* About copy */}
+      {/* About heading */}
       <SectionHeading
         eyebrow={t.eyebrowAbout}
         title={t.navAbout}
       />
-      <p className={styles.body}>{content.about.body}</p>
+
+      {/* Short titled blocks with pulsing cyan indexes */}
+      <div className={styles.blocks}>
+        {content.about.blocks.map((block, i) => {
+          // "01", "02", "03" — pad to 2 digits
+          const index = String(i + 1).padStart(2, '0');
+
+          return (
+            <Reveal key={block.title} delay={i * 0.08}>
+              <article className={styles.block}>
+                {/* Marker + title on one row */}
+                <header className={styles.blockHeader}>
+                  <SignalMark index={index} />
+                  <h3 className={styles.blockTitle}>{block.title}</h3>
+                </header>
+                {/* One or more short paragraphs */}
+                {block.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className={styles.blockBody}>
+                    {paragraph}
+                  </p>
+                ))}
+              </article>
+            </Reveal>
+          );
+        })}
+      </div>
+
+      {/* Closing line under all blocks */}
+      <p className={styles.closing}>{content.about.closing}</p>
     </Section>
   );
 }
