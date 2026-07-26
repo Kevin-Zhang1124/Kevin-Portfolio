@@ -5,8 +5,13 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { TypeLine } from '../ui/TypeLine';
 import styles from './About.module.css';
 
+/** Profile image in /public/profile.png */
+const PROFILE_SRC = '/profile.png';
+
 /**
- * First section: brand + tagline (from dictionary) + about body (from content).
+ * First section: brand + typed taglines + profile photo + about body.
+ * Mobile: name -> tagline -> centered photo
+ * Desktop: text left, photo right
  */
 export function About() {
   const { t } = useLocale();
@@ -16,14 +21,28 @@ export function About() {
     <Section id="about">
       {/* Hero: name is the main brand signal */}
       <div className={styles.hero}>
-        <h1 className={styles.name}>{t.brandName}</h1>
-        <TypeLine
-          lines={t.taglines}
-          className={styles.tagline}
-          typingMs={150}
-          deletingMs={40}
-          pauseMs={2000}
-        />
+        {/* Text block: name + typing line */}
+        <div className={styles.copy}>
+          <h1 className={styles.name}>{t.brandName}</h1>
+          <TypeLine
+            lines={t.taglines}
+            className={styles.tagline}
+            typingMs={150}
+            deletingMs={40}
+            pauseMs={2000}
+          />
+        </div>
+
+        {/* Portrait — centered on mobile, right side on desktop */}
+        <div className={styles.photoWrap}>
+          <img
+            className={styles.photo}
+            src={PROFILE_SRC}
+            alt={t.brandName}
+            width={200}
+            height={200}
+          />
+        </div>
       </div>
 
       {/* About copy */}
