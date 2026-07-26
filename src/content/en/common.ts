@@ -5,7 +5,7 @@ export const enCommon = {
 
   // Hero lines for the typing loop
   taglines: [
-    'CS student at Waterloo',
+    'CS student at UWaterloo',
     'Software & Machine Learning.',
     'Tuning ideas into real products',
   ],
