@@ -1,7 +1,12 @@
 // Chinese UI strings - same keys as en/common.ts (required so TypeScript stays in sync)
 export const zhCommon = {
   brandName: '张凯文',
-  tagline: '软件工程师，专注清晰、有思考的产品。',
+
+  taglines: [
+    '滑铁卢大学计算机学生',
+    '软件开发与机器学习',
+    '将想法转换为真实产品',
+  ],
 
   toggleLanguage: 'EN',
 

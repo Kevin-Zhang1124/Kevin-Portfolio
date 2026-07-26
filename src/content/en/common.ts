@@ -2,7 +2,13 @@
 export const enCommon = {
   // Site identity
   brandName: 'Kevin Zhang',
-  tagline: 'Software engineer building clear, thoughtful products.',
+
+  // Hero lines for the typing loop
+  taglines: [
+    'CS student at Waterloo',
+    'Software & Machine Learning.',
+    'Tuning ideas into real products',
+  ],
 
   // Controls in the nav
   toggleLanguage: '中文',

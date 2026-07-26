@@ -16,7 +16,7 @@ export function About() {
       {/* Hero: name is the main brand signal */}
       <div className={styles.hero}>
         <h1 className={styles.name}>{t.brandName}</h1>
-        <p className={styles.tagline}>{t.tagline}</p>
+        <p className={styles.tagline}>{t.taglines[0]}</p>
       </div>
 
       {/* About copy */}
