@@ -66,9 +66,9 @@ export function About() {
   }, []);
 
   return (
-    <Section id="about">
+    <>
       {/* Hero: name is the main brand signal */}
-      <div className={styles.hero} ref={heroRef}>
+      <div id="top" className={styles.hero} ref={heroRef}>
         {/* Text block: name + typing line */}
         <div className={styles.copy}>
           {/* Quiet intro — not a heading; name stays the brand */}
@@ -110,41 +110,43 @@ export function About() {
       </div>
 
       {/* About heading */}
-      <div ref={aboutRef}>
-        <SectionHeading
-          eyebrow={t.eyebrowAbout}
-          title={t.navAbout}
-        />
-      </div>
+      <Section id="about">
+        <div ref={aboutRef}>
+          <SectionHeading
+            eyebrow={t.eyebrowAbout}
+            title={t.navAbout}
+          />
+        </div>
 
-      {/* Short titled blocks with pulsing cyan indexes */}
-      <div className={styles.blocks}>
-        {content.about.blocks.map((block, i) => {
-          // "01", "02", "03" — pad to 2 digits
-          const index = String(i + 1).padStart(2, '0');
+        {/* Short titled blocks with pulsing cyan indexes */}
+        <div className={styles.blocks}>
+          {content.about.blocks.map((block, i) => {
+            // "01", "02", "03" — pad to 2 digits
+            const index = String(i + 1).padStart(2, '0');
 
-          return (
-            <Reveal key={block.title} delay={i * 0.08}>
-              <article className={styles.block}>
-                {/* Marker + title on one row */}
-                <header className={styles.blockHeader}>
-                  <SignalMark index={index} />
-                  <h3 className={styles.blockTitle}>{block.title}</h3>
-                </header>
-                {/* One or more short paragraphs */}
-                {block.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className={styles.blockBody}>
-                    {paragraph}
-                  </p>
-                ))}
-              </article>
-            </Reveal>
-          );
-        })}
-      </div>
+            return (
+              <Reveal key={block.title} delay={i * 0.08}>
+                <article className={styles.block}>
+                  {/* Marker + title on one row */}
+                  <header className={styles.blockHeader}>
+                    <SignalMark index={index} />
+                    <h3 className={styles.blockTitle}>{block.title}</h3>
+                  </header>
+                  {/* One or more short paragraphs */}
+                  {block.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className={styles.blockBody}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
 
-      {/* Closing line under all blocks */}
-      <p className={styles.closing}>{content.about.closing}</p>
-    </Section>
+        {/* Closing line under all blocks */}
+        <p className={styles.closing}>{content.about.closing}</p>
+      </Section>
+    </>
   );
 }
