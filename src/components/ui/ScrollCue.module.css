@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Capsule / mouse body */
+.mouse {
+  position: relative;
+  width: 1.35rem;
+  height: 2.15rem;
+  border: 2.5px solid var(--accent);
+  border-radius: 999px;
+  box-sizing: border-box;
+  opacity: 0.9;
+}
+
+/* Scroll-wheel dot inside the pill */
+.wheel {
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-left: -0.14rem; /* center the dot */
+  border-radius: 50%;
+  background: var(--accent);
+  animation: wheelBounce 2s ease-in-out infinite;
+}
+
+/* Down, then back up — stays visible */
+@keyframes wheelBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.85rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel {
+    animation: none;
+    opacity: 0.85;
+    top: 0.55rem;
+  }
+}

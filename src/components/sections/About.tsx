@@ -5,6 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { TypeLine } from '../ui/TypeLine';
 import { SignalMark } from '../ui/SignalMark';
 import { Reveal } from '../ui/Reveal';
+import { ScrollCue } from '../ui/ScrollCue';
 import styles from './About.module.css';
 
 /** Profile image in /public/profile.png */
@@ -51,8 +52,10 @@ export function About() {
           />
         </div>
 
-        {/* Quiet cue: more content (About) is below the fold */}
-        <p className={styles.scrollHint}>{t.scrollHint}</p>
+        {/* Mouse scroll cue — more content (About) is below */}
+        <div className={styles.scrollHint}>
+          <ScrollCue label={t.scrollHint} />
+        </div>
       </div>
 
       {/* About heading */}
