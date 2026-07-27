@@ -25,19 +25,44 @@ export function About() {
   const [showCue, setShowCue] = useState(true);
 
   useEffect(() => {
+    const hero = heroRef.current;
     const about = aboutRef.current;
-    if (!about) {
+    if (!hero || !about) {
       return;
     }
-    // Hide pill as soon as PROFILE / About enters the viewport
-    const observer = new IntersectionObserver(
+  
+    let heroInView = false;
+    let aboutInView = false;
+  
+    const syncCue = () => {
+      // Landing only: hero visible and PROFILE / About not yet on screen
+      setShowCue(heroInView && !aboutInView);
+    };
+  
+    const heroObserver = new IntersectionObserver(
       ([entry]) => {
-        setShowCue(!entry.isIntersecting);
+        heroInView = entry.isIntersecting;
+        syncCue();
       },
-      { root: null, threshold: 0, rootMargin: '0px 0px -10% 0px' },
+      { threshold: 0.1 },
     );
-    observer.observe(about);
-    return () => observer.disconnect();
+  
+    // Hide as soon as the About heading enters the viewport
+    const aboutObserver = new IntersectionObserver(
+      ([entry]) => {
+        aboutInView = entry.isIntersecting;
+        syncCue();
+      },
+      { threshold: 0, rootMargin: '0px 0px -5% 0px' },
+    );
+  
+    heroObserver.observe(hero);
+    aboutObserver.observe(about);
+  
+    return () => {
+      heroObserver.disconnect();
+      aboutObserver.disconnect();
+    };
   }, []);
 
   return (
