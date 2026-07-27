@@ -67,39 +67,11 @@
   background: var(--bg-elevated);
 }
 
-/* Bottom-of-hero cue — same job as a scroll pill, Signal Mesh style */
 .scrollHint {
   position: absolute;
   left: 50%;
   bottom: var(--space-3);
   transform: translateX(-50%);
-  margin: 0;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  animation: scrollHintPulse 2.2s ease-in-out infinite;
-}
-
-@keyframes scrollHintPulse {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(4px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scrollHint {
-    animation: none;
-    opacity: 0.75;
-  }
 }
 
 /* Stack of about blocks */
