@@ -1,17 +1,20 @@
-/* Top-of-page identity — full first screen on phone + desktop */
+/* Full first screen: pill at bottom stays visible on load */
 .hero {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--space-4);
-  /* svh = stable mobile viewport; 5rem ≈ sticky nav */
-  min-height: calc(100svh - 5rem);
-  margin-bottom: var(--space-6);
   box-sizing: border-box;
-  /* Extra top space so content clears the fixed nav on small screens */
+
+  /* Cancel Section's top padding so it doesn't push the pill down */
+  margin-top: calc(-1 * var(--space-6));
+  margin-bottom: var(--space-6);
+
+  /* Desktop nav ~5rem; leave room for the pill inside the viewport */
+  min-height: calc(100svh - 5rem);
   padding-top: var(--space-3);
-  padding-bottom: var(--space-4);
+  padding-bottom: 3.5rem; /* space so content doesn't sit on the pill */
 }
 
 .copy {
@@ -67,11 +70,29 @@
   background: var(--bg-elevated);
 }
 
+/* Viewport-fixed cue — always at screen bottom, with a safe gap */
 .scrollHint {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  bottom: var(--space-3);
+  bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
+  z-index: 40;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.45s ease; /* 渐渐淡出 / 淡入 */
+}
+
+@media (max-width: 767px) {
+  .scrollHint {
+    bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Optional: hide when JS adds this class after scrolling past the hero */
+.scrollHintHidden {
+  opacity: 0;
+  /* keep it in the layout tree so opacity can animate */
+  pointer-events: none;
 }
 
 /* Stack of about blocks */
@@ -123,6 +144,14 @@
   font-family: var(--font-mono);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
+}
+
+/* Mobile nav wraps (brand + links + 中文) — taller than 5rem */
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(100svh - 9rem);
+    padding-bottom: 3.25rem;
+  }
 }
 
 /* Desktop: text left, photo right */

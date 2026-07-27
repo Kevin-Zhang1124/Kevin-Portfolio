@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Section } from '../layout/Section';
 import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
@@ -19,11 +20,30 @@ const PROFILE_SRC = '/profile.png';
 export function About() {
   const { t } = useLocale();
   const content = useContent();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const [showCue, setShowCue] = useState(true);
+
+  useEffect(() => {
+    const about = aboutRef.current;
+    if (!about) {
+      return;
+    }
+    // Hide pill as soon as PROFILE / About enters the viewport
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowCue(!entry.isIntersecting);
+      },
+      { root: null, threshold: 0, rootMargin: '0px 0px -10% 0px' },
+    );
+    observer.observe(about);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Section id="about">
       {/* Hero: name is the main brand signal */}
-      <div className={styles.hero}>
+      <div className={styles.hero} ref={heroRef}>
         {/* Text block: name + typing line */}
         <div className={styles.copy}>
           {/* Quiet intro — not a heading; name stays the brand */}
@@ -53,16 +73,24 @@ export function About() {
         </div>
 
         {/* Mouse scroll cue — more content (About) is below */}
-        <div className={styles.scrollHint}>
+        <div 
+          className={
+            showCue
+              ? styles.scrollHint
+              : `${styles.scrollHint} ${styles.scrollHintHidden}`
+          }
+        >
           <ScrollCue label={t.scrollHint} />
         </div>
       </div>
 
       {/* About heading */}
-      <SectionHeading
-        eyebrow={t.eyebrowAbout}
-        title={t.navAbout}
-      />
+      <div ref={aboutRef}>
+        <SectionHeading
+          eyebrow={t.eyebrowAbout}
+          title={t.navAbout}
+        />
+      </div>
 
       {/* Short titled blocks with pulsing cyan indexes */}
       <div className={styles.blocks}>
