@@ -9,15 +9,16 @@
   transition: var(--transition-theme);
 }
 
-/* brand (left) · links · controls (right) */
+/* Mobile-first: brand | (menu + language) on one row */
 .nav {
+  position: relative; /* dropdown anchors here */
   max-width: var(--content-width);
   margin: 0 auto;
   padding: var(--space-3);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .brand {
@@ -25,29 +26,79 @@
   font-size: 1.1rem;
   color: var(--text);
   text-decoration: none;
-  margin-right: auto; /* pushes the rest toward the right on wide screens */
+  margin-right: auto; /* pushes menu + language to the right */
+  min-width: 0;
 }
 
+/* ----- Mobile menu button (hamburger) ----- */
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.menuButton:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Two-line icon via box-shadow */
+.menuIcon {
+  display: block;
+  width: 1rem;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 0.35rem 0 currentColor;
+}
+
+/* ----- Links: dropdown on mobile ----- */
 .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+  display: none; /* hidden until .linksOpen */
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: var(--space-2);
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  left: auto;
+  min-width: 11rem;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 110;
+}
+
+.linksOpen {
+  display: flex;
 }
 
 .link {
+  display: block;
+  padding: 0.65rem 0.85rem;
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.95rem;
+  border-radius: var(--radius);
 }
 
 .link:hover {
   color: var(--accent);
+  background: var(--accent-soft);
 }
 
-/* Current section in view — stronger than muted default */
+/* Current section — still highlighted in the dropdown */
 .linkActive {
   color: var(--accent);
   font-weight: 600;
@@ -56,6 +107,7 @@
 .controls {
   display: flex;
   gap: var(--space-2);
+  flex-shrink: 0;
 }
 
 .controlButton {
@@ -72,4 +124,40 @@
 .controlButton:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* ----- Desktop: horizontal links, no hamburger ----- */
+@media (min-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .links,
+  .linksOpen {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .link {
+    display: inline;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .link:hover {
+    background: transparent;
+  }
 }
