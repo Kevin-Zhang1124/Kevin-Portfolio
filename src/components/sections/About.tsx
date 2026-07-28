@@ -7,6 +7,7 @@ import { TypeLine } from '../ui/TypeLine';
 import { SignalMark } from '../ui/SignalMark';
 import { Reveal } from '../ui/Reveal';
 import { ScrollCue } from '../ui/ScrollCue';
+import { SocialLinks } from '../ui/SocialLinks';
 import styles from './About.module.css';
 
 /** Profile image in /public/profile.png */
@@ -95,6 +96,11 @@ export function About() {
             width={200}
             height={200}
           />
+        </div>
+
+        {/* Social icons — centered row under the photo */}
+        <div className={styles.socialRow}>
+          <SocialLinks />
         </div>
 
         {/* Mouse scroll cue — more content (About) is below */}

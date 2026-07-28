@@ -67,6 +67,14 @@
   background: var(--bg-elevated);
 }
 
+/* Full-width row so SocialLinks can stay centered under the hero */
+.socialRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
 /* Viewport-fixed cue — gap + safe area (not max: we want both) */
 .scrollHint {
   position: fixed;
@@ -98,6 +106,11 @@
   .hero {
     justify-content: flex-start;
     padding-top: clamp(2rem, 10vh, 4.5rem);
+  }
+
+  /* Extra space between photo and social icons */
+  .socialRow {
+    margin-top: var(--space-6); /* was --space-2 from the base rule */
   }
 }
 
@@ -156,6 +169,7 @@
 @media (min-width: 768px) {
   .hero {
     flex-direction: row;
+    flex-wrap: wrap; /* lets .socialRow drop to a new line */
     align-items: center;
     justify-content: space-between;
     gap: var(--space-5);
@@ -167,5 +181,10 @@
     align-self: auto;
     width: 14rem;
     height: 14rem;
+  }
+  .socialRow {
+    flex-basis: 100%; /* take the whole second row */
+    order: 3; /* after .copy and .photoWrap */
+    margin-top: 0;
   }
 }

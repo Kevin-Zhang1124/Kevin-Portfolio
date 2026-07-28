@@ -1,0 +1,51 @@
+/* Centered icon row — mobile first */
+.list {
+  display: flex;
+  justify-content: center; /* all four icons centered as a group */
+  align-items: center;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; /* comfortable tap target on mobile */
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: var(--accent);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.link svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.link:hover,
+.link:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  outline: none;
+}
+
+.link:active {
+  transform: scale(0.96);
+}
+
+/* Slightly tighter on wider screens — still centered */
+@media (min-width: 768px) {
+  .link {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
