@@ -1,4 +1,4 @@
-/* Full first screen: pill at bottom stays visible on load */
+/* Landing screen: at least one full viewport so About stays below the fold */
 .hero {
   position: relative;
   display: flex;
@@ -6,15 +6,12 @@
   justify-content: center;
   gap: var(--space-4);
   box-sizing: border-box;
-
-  /* Cancel Section's top padding so it doesn't push the pill down */
-  margin-top: calc(-1 * var(--space-6));
   margin-bottom: var(--space-6);
 
-  /* Desktop nav ~5rem; leave room for the pill inside the viewport */
-  min-height: calc(100svh - 5rem);
+  /* Full viewport height (nav sits above in the flow; this keeps PROFILE off-screen) */
+  min-height: 100svh;
   padding-top: var(--space-3);
-  padding-bottom: 3.5rem; /* space so content doesn't sit on the pill */
+  padding-bottom: 3.5rem; /* room so name/photo don't sit under the pill */
 }
 
 .copy {
@@ -70,21 +67,22 @@
   background: var(--bg-elevated);
 }
 
-/* Viewport-fixed cue — always at screen bottom, with a safe gap */
+/* Viewport-fixed cue — gap + safe area (not max: we want both) */
 .scrollHint {
   position: fixed;
   left: 50%;
-  bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+  bottom: calc(1.75rem + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
   z-index: 40;
   pointer-events: none;
   opacity: 1;
-  transition: opacity 0.45s ease; /* 渐渐淡出 / 淡入 */
+  transition: opacity 0.45s ease; /* faded in & out */
 }
 
 @media (max-width: 767px) {
   .scrollHint {
-    bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+    /* Extra lift so Chrome’s bottom bar is less likely to cover the pill */
+    bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -144,14 +142,6 @@
   font-family: var(--font-mono);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
-}
-
-/* Mobile nav wraps (brand + links + 中文) — taller than 5rem */
-@media (max-width: 767px) {
-  .hero {
-    min-height: calc(100svh - 9rem);
-    padding-bottom: 3.25rem;
-  }
 }
 
 /* Desktop: text left, photo right */
