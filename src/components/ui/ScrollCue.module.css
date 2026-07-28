@@ -7,9 +7,9 @@
 /* Capsule / mouse body */
 .mouse {
   position: relative;
-  width: 1.35rem;
-  height: 2.15rem;
-  border: 2.5px solid var(--accent);
+  width: 2rem;
+  height: 3.2rem;
+  border: 3px solid var(--accent);
   border-radius: 999px;
   box-sizing: border-box;
   opacity: 0.9;
@@ -18,11 +18,11 @@
 /* Scroll-wheel dot inside the pill */
 .wheel {
   position: absolute;
-  top: 0.35rem;
+  top: 0.5rem;
   left: 50%;
-  width: 0.28rem;
-  height: 0.28rem;
-  margin-left: -0.14rem; /* center the dot */
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-left: -0.225rem; /* center the dot */
   border-radius: 50%;
   background: var(--accent);
   animation: wheelBounce 2s ease-in-out infinite;
@@ -35,7 +35,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(0.85rem);
+    transform: translateY(1.35rem);
   }
 }
 

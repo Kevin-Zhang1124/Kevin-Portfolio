@@ -161,7 +161,7 @@
     gap: var(--space-5);
     /* Slightly above dead center: more space below than above */
     padding-top: clamp(1.25rem, 4vh, 2rem);
-    padding-bottom: clamp(10rem, 25vh, 10rem);
+    padding-bottom: clamp(15rem, 30vh, 15rem);
   }
   .photoWrap {
     align-self: auto;
