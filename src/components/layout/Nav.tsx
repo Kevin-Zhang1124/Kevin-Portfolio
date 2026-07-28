@@ -41,8 +41,8 @@ export function Nav() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Primary">
-        {/* Brand jumps to the first section (About) */}
-        <a className={styles.brand} href="#about">
+        {/* Brand jumps to the landing hero at the top of the page */}
+        <a className={styles.brand} href="#top">
           {t.brandName}
         </a>
 

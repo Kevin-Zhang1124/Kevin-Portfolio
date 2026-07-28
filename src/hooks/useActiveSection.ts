@@ -19,21 +19,37 @@ export function useActiveSection() {
         return;
       }
 
+      // Remember which sections are currently in the spy zone
+      const inView = new Map<string, IntersectionObserverEntry>();
+
       /**
        * Called when section visibility changes.
        * We pick the intersecting section closest to the top of the viewport.
        */
       const observer = new IntersectionObserver(
         (entries) => {
-          // Only sections that are currently overlapping the viewport
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort(
-              (a, b) =>
-                a.boundingClientRect.top - b.boundingClientRect.top,
-            );
+          // Update only the sections that changed this frame
+          for (const entry of entries) {
+            const id = (entry.target as HTMLElement).id;
+            if (entry.isIntersecting) {
+              inView.set(id, entry);
+            } else {
+              inView.delete(id);
+            }
+          }
 
-          const topMost = visible[0];
+          // Nothing in the active band (e.g. landing hero) -> no nav highlight
+          if (inView.size === 0) {
+            setActiveId(null);
+            return;
+          }
+
+          // Prefer the section closest to the top of the viewport
+          const topMost = [...inView.values()].sort(
+            (a, b) =>
+              a.boundingClientRect.top - b.boundingClientRect.top,
+          )[0];
+          
           if (topMost?.target.id) {
             setActiveId(topMost.target.id as SectionId);
           }
