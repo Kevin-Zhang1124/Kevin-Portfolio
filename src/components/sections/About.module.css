@@ -82,7 +82,7 @@
 @media (max-width: 767px) {
   .scrollHint {
     /* Extra lift so Chrome’s bottom bar is less likely to cover the pill */
-    bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+    bottom: calc(10rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -91,6 +91,14 @@
   opacity: 0;
   /* keep it in the layout tree so opacity can animate */
   pointer-events: none;
+}
+
+/* Mobile: sit hero content higher (not dead center in 100svh) */
+@media (max-width: 767px) {
+  .hero {
+    justify-content: flex-start;
+    padding-top: clamp(2rem, 10vh, 4.5rem);
+  }
 }
 
 /* Stack of about blocks */
@@ -151,6 +159,9 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-5);
+    /* Slightly above dead center: more space below than above */
+    padding-top: clamp(1.25rem, 4vh, 2rem);
+    padding-bottom: clamp(10rem, 25vh, 10rem);
   }
   .photoWrap {
     align-self: auto;
