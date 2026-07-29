@@ -5,6 +5,7 @@ import { Education } from './components/sections/Education';
 import { Work } from './components/sections/Work';
 import { Project } from './components/sections/Project';
 import { Contact } from './components/sections/Contact';
+import { Footer } from './components/layout/Footer';
 import styles from './App.module.css';
 
 /**
@@ -23,6 +24,7 @@ function App() {
         <Project />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

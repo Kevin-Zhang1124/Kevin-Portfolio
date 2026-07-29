@@ -47,4 +47,9 @@ export const enCommon = {
   formSending: 'Sending…',
   formSuccess: 'Message sent successfully! Thanks for reaching out!',
   formError: 'Something went wrong. Please try again.',
+
+  // Footer
+  footerBrandName: 'Kevin Zhang',
+  footerNote: 'Built with ❤️ in UWaterloo, ON.',
+  footerCopyright: '© 2026 Kevin Zhang. All rights reserved.'
 } as const;

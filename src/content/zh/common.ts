@@ -41,4 +41,9 @@ scrollHint: '向下探索',
   formSending: '正在发送...',
   formSuccess: '消息发送成功！感谢您的联系！',
   formError: '发送失败，请稍后再试。',
+
+  // Footer — English-only (same as en/common.ts)
+  footerBrandName: 'Kevin Zhang',
+  footerNote: 'Built with ❤️ in UWaterloo, ON.',
+  footerCopyright: '© 2026 Kevin Zhang. All rights reserved.',
 } as const
