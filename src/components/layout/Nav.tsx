@@ -44,7 +44,7 @@ export function Nav() {
       <nav className={styles.nav} aria-label="Primary">
         {/* Brand jumps to the landing hero at the top of the page */}
         <a className={styles.brand} href="#top">
-          {t.brandName}
+          {t.navBrandName}
         </a>
 
         {/* Mobile only (CSS): opens the section list */}

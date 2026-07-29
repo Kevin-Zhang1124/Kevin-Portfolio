@@ -2,6 +2,7 @@
 export const enCommon = {
   // Site identity
   brandName: 'Kevin Zhang',
+  navBrandName: 'Kevin Zhang',
 
   // Small intro above the big name (hero only)
   heroGreeting: 'Hi, my name is',

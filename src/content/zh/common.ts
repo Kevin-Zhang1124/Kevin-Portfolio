@@ -1,6 +1,7 @@
 // Chinese UI strings - same keys as en/common.ts (required so TypeScript stays in sync)
 export const zhCommon = {
   brandName: '张凯文',
+  navBrandName: 'Kevin Zhang',
 
   // 大号姓名上方的短问候语
   heroGreeting: '你好，我是',
