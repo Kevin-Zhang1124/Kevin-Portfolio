@@ -1,25 +1,7 @@
-import type { ContactItem } from '../../types'
-
-/** Contact links (English labels; hrefs are shared across languages). */
-export const enContact: ContactItem[] = [
-  {
-    id: 'contact-1',
-    label: 'Email',
-    value: 'k389zhan@uwaterloo.ca',
-    href: 'mailto:k389zhan@uwaterloo.ca',
-  },
-  {
-    id: 'linkedin',
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/kevin-zhang-7445662ab/',
-    href: 'https://www.linkedin.com/in/kevin-zhang-7445662ab/',
-  },
-  {
-    id: 'github',
-    label: 'GitHub',
-    value: 'github.com/Kevin-Zhang1124',
-    href: 'https://github.com/Kevin-Zhang1124',
-  },
-
-  /** Add more contact entries as needed */
-];
+/**
+ * Contact section copy (English).
+ */
+export const enContact = {
+  intro:
+    "👋 Let's connect! I'm always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out if you'd like to chat about 💻 software development, 🤖 machine learning, or 🚀 new ideas and projects.",
+} as const;
