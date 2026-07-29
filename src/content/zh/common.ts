@@ -29,4 +29,16 @@ scrollHint: '向下探索',
   eyebrowWork: '职业信号',
   eyebrowProject: '构建记录',
   eyebrowContact: '联系',
+
+  // 联系表单
+  formNameLabel: '姓名',
+  formNamePlaceholder: '请输入您的姓名',
+  formEmailLabel: '邮箱',
+  formEmailPlaceholder: 'you@example.com',
+  formMessageLabel: '留言',
+  formMessagePlaceholder: '想和我聊些什么？',
+  formSubmit: '发送消息',
+  formSending: '正在发送...',
+  formSuccess: '消息已收到，感谢你的联系！',
+  formError: '发送失败，请稍后再试。',
 } as const

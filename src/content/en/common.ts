@@ -35,4 +35,16 @@ export const enCommon = {
   eyebrowWork: 'CAREER SIGNAL',
   eyebrowProject: 'BUILD LOG',
   eyebrowContact: 'CONNECT',
+
+  // Contact form
+  formNameLabel: 'Name',
+  formNamePlaceholder: 'Your name',
+  formEmailLabel: 'Email',
+  formEmailPlaceholder: 'you@example.com',
+  formMessageLabel: 'Message',
+  formMessagePlaceholder: 'What would you like to talk about?',
+  formSubmit: 'Send signal',
+  formSending: 'Sending…',
+  formSuccess: 'Signal received — thanks for reaching out.',
+  formError: 'Something went wrong. Please try again.',
 } as const;
