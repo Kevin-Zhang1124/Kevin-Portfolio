@@ -120,3 +120,26 @@
     min-width: 12rem;
   }
 }
+
+.statusSuccess,
+.statusError {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.statusSuccess {
+  color: var(--accent);
+}
+
+.statusError {
+  color: #f07178; /* soft error; not purple */
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}

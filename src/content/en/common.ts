@@ -45,6 +45,6 @@ export const enCommon = {
   formMessagePlaceholder: 'What would you like to talk about?',
   formSubmit: 'Send signal',
   formSending: 'Sending…',
-  formSuccess: 'Signal received — thanks for reaching out.',
+  formSuccess: 'Message sent successfully! Thanks for reaching out!',
   formError: 'Something went wrong. Please try again.',
 } as const;

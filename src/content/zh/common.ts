@@ -39,6 +39,6 @@ scrollHint: '向下探索',
   formMessagePlaceholder: '想和我聊些什么？',
   formSubmit: '发送消息',
   formSending: '正在发送...',
-  formSuccess: '消息已收到，感谢你的联系！',
+  formSuccess: '消息发送成功！感谢您的联系！',
   formError: '发送失败，请稍后再试。',
 } as const
