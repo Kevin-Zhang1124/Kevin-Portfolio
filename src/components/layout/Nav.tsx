@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { sections } from '../../content/shared/sections';
 import { useLocale } from '../../hooks/useLocale';
 import { useActiveSection } from '../../hooks/useActiveSection';
+import { HiOutlineGlobeAlt } from 'react-icons/hi';
 import styles from './Nav.module.css';
 
 /**
@@ -99,6 +100,7 @@ export function Nav() {
             onClick={toggleLocale}
             aria-label="Switch language"
           >
+            <HiOutlineGlobeAlt className={styles.langIcon} aria-hidden="true" />
             {t.toggleLanguage}
           </button>
         </div>

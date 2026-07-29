@@ -17,7 +17,7 @@ export const enCommon = {
   ],
 
   // Controls in the nav
-  toggleLanguage: '中文',
+  toggleLanguage: 'CN',
 
   // Nav section labels (must match SectionId keys we use in config)
   navAbout: 'About',
