@@ -5,6 +5,12 @@
   scroll-margin-top: 5rem;
 }
 
+/* Hash nav focuses the section — don't draw a box around the whole block */
+.section:focus,
+.section:focus-visible {
+  outline: none;
+}
+
 /* Hairline between sections — not a "card", just separation */
 .section + .section {
   border-top: 1px solid var(--border);
