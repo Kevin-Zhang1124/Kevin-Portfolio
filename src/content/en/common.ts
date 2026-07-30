@@ -44,7 +44,7 @@ export const enCommon = {
   formEmailPlaceholder: 'you@example.com',
   formMessageLabel: 'Message',
   formMessagePlaceholder: 'What would you like to talk about?',
-  formSubmit: 'Send signal',
+  formSubmit: 'Send message',
   formSending: 'Sending…',
   formSuccess: 'Message sent successfully! Thanks for reaching out!',
   formError: 'Something went wrong. Please try again.',
