@@ -23,7 +23,7 @@
 
 .brand {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text);
   text-decoration: none;
   margin-right: auto; /* pushes menu + language to the right */
@@ -139,8 +139,10 @@
 /* ----- Desktop: horizontal links, no hamburger ----- */
 @media (min-width: 768px) {
   .nav {
+    max-width: 72rem; /* desktop only */
+    padding: var(--space-3) var(--space-4);
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
 
   .menuButton {
@@ -153,7 +155,7 @@
     position: static;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: var(--space-5);
     min-width: 0;
     padding: 0;
     background: transparent;
@@ -164,6 +166,7 @@
   .link {
     display: inline;
     padding: 0;
+    font-size: 1.05rem;
     border-radius: 0;
   }
 
