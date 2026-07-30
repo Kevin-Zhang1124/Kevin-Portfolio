@@ -3,7 +3,19 @@ import { useLocale } from '../../hooks/useLocale';
 import { useContent } from '../../hooks/useContent';
 import { SkillIcon } from '../ui/SkillIcon';
 import { SectionHeading } from '../ui/SectionHeading';
+import { SiGithub, SiYoutube } from 'react-icons/si';
+import type { ProjectLinkKind } from '../../types';
 import styles from './sections.module.css';
+
+const projectLinkIcons: Record<ProjectLinkKind, typeof SiGithub> = {
+  youtube: SiYoutube,
+  github: SiGithub,
+};
+
+const projectLinkLabels: Record<ProjectLinkKind, string> = {
+  youtube: 'Watch demo on YouTube',
+  github: 'View on GitHub',
+};
 
 /** Renders projects for the active locale */
 export function Project() {
@@ -22,9 +34,18 @@ export function Project() {
           <li key={item.id}>
             <div className={styles.itemHeader}>
               <h3 className={styles.itemTitle}>{item.name}</h3>
-              {item.link ? (
-                <a href={item.link} target="_blank" rel="noreferrer">
-                  {t.projectLink}
+              {item.link && item.linkKind ? (
+                <a
+                  className={styles.projectLink}
+                  href={item.link} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  aria-label={projectLinkLabels[item.linkKind]}
+                >
+                  {(() => {
+                    const Icon = projectLinkIcons[item.linkKind];
+                    return <Icon aria-hidden="true" focusable="false" />
+                  })()}
                 </a>
               ) : null}
             </div>

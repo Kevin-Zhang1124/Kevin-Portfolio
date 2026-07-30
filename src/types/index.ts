@@ -35,6 +35,8 @@ export type WorkItem = {
   tech: SkillId[];
 };
 
+export type ProjectLinkKind = 'youtube' | 'github';
+
 /** One project entry */
 export type ProjectItem = {
   id: string;
@@ -42,6 +44,7 @@ export type ProjectItem = {
   summary: string;
   tech: SkillId[];
   link?: string;  // optional URL
+  linkKind?: ProjectLinkKind; // icon for the link
 }
 
 /** One contact method */

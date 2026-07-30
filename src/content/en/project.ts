@@ -7,6 +7,8 @@ export const enProject: ProjectItem[] = [
     name: 'Biteshare - Restaurant Review Application',
     summary: 'BiteShare is a full-stack restaurant review app built with Kotlin Multiplatform, Jetpack Compose, Ktor, and Supabase, featuring restaurant discovery, user authentication, and review posting.',
     tech: ['kotlin', 'android', 'git', 'supabase'],
+    link: 'https://www.youtube.com/shorts/On8riUHww5Q',
+    linkKind: 'youtube',
   },
   {
     id: 'project-2',
@@ -14,6 +16,7 @@ export const enProject: ProjectItem[] = [
     summary: 'CC3K is a turn-based rogue-like dungeon crawler built in C++ using object-oriented design patterns, featuring randomized dungeon generation, enemy behaviors, item interactions, and multi-floor gameplay.',
     tech: ['c++', 'git'],
     link: 'https://github.com/Kevin-Zhang1124/Game_Project_cc3k',
+    linkKind: 'github',
   },
 
   /** Add more project entries as needed */
