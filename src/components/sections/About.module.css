@@ -87,13 +87,6 @@
   transition: opacity 0.45s ease; /* faded in & out */
 }
 
-@media (max-width: 767px) {
-  .scrollHint {
-    /* Extra lift so Chrome’s bottom bar is less likely to cover the pill */
-    bottom: calc(10rem + env(safe-area-inset-bottom, 0px));
-  }
-}
-
 /* Optional: hide when JS adds this class after scrolling past the hero */
 .scrollHintHidden {
   opacity: 0;
