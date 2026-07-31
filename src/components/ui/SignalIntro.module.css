@@ -1,0 +1,117 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* safe areas for notched phones */
+  padding:
+    max(1rem, env(safe-area-inset-top))
+    max(1rem, env(safe-area-inset-right))
+    max(1rem, env(safe-area-inset-bottom))
+    max(1rem, env(safe-area-inset-left));
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.leaving {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Mobile first: almost full width, leave side margin */
+.content {
+  width: min(92vw, 900px);
+}
+
+.wave,
+.name {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible; /* stroke shouldn't clip */
+}
+
+.wave {
+  margin-bottom: -0.35rem;
+}
+
+.wavePath {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5; /* thinner on small screens (SVG user units) */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawSignal 2.0s ease-out forwards;
+}
+
+.nameText {
+  fill: transparent;
+  stroke: var(--accent);
+  stroke-width: 1.25;
+  font-family: var(--font-display);
+  /* scales with viewport — fits "Kevin Zhang" on phones */
+  font-size: clamp(52px, 14vw, 92px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation:
+    drawName 1.4s 1.7s ease forwards,
+    fillName 0.4s 2.9s ease forwards;
+}
+
+@keyframes drawSignal {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawName {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillName {
+  to {
+    fill: var(--accent);
+  }
+}
+
+/* Desktop: slightly thicker stroke, roomier content */
+@media (min-width: 768px) {
+  .content {
+    width: min(80vw, 900px);
+  }
+
+  .wavePath {
+    stroke-width: 3;
+  }
+
+  .nameText {
+    stroke-width: 1.5;
+    letter-spacing: 0.06em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wavePath,
+  .nameText {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .nameText {
+    fill: var(--accent);
+  }
+
+  .root {
+    transition: none;
+  }
+}

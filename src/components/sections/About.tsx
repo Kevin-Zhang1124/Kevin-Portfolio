@@ -13,12 +13,17 @@ import styles from './About.module.css';
 /** Profile image in /public/profile.png */
 const PROFILE_SRC = '/profile.png';
 
+type AboutProps = {
+  /** False while SignalIntro is playing */
+  introComplete?: boolean;
+};
+
 /**
  * First section: brand + typed taglines + profile photo + about body.
  * Mobile: name -> tagline -> centered photo
  * Desktop: text left, photo right
  */
-export function About() {
+export function About({ introComplete }: AboutProps) {
   const { t } = useLocale();
   const content = useContent();
   const heroRef = useRef<HTMLDivElement>(null);
@@ -84,6 +89,7 @@ export function About() {
             typingMs={150}
             deletingMs={40}
             pauseMs={2000}
+            active={introComplete}
           />
         </div>
 

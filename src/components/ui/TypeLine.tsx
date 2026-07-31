@@ -12,6 +12,8 @@ type TypeLineProps = {
   deletingMs?: number;
   /** Pause after a full line is typed, before deleting (ms) */
   pauseMs?: number;
+  /** When false, pause and show nothing (e.g. during SignalIntro) */
+  active?: boolean;
 };
 
 type Phase = 'typing' | 'deleting';
@@ -26,6 +28,7 @@ export function TypeLine({
   typingMs = 40,    // default 40ms
   deletingMs = 24,  // default 24ms
   pauseMs = 3000,   // default 3000ms
+  active = true,
 }: TypeLineProps) {
   const [lineIndex, setLineIndex] = useState(0);
   const [text, setText] = useState('');
@@ -50,9 +53,23 @@ export function TypeLine({
     setPhase('typing');
   }, [lines, reduceMotion]);
 
+  // When intro ends (active becomes true), start typing from line 1
+  useEffect(() => {
+    if (!active || reduceMotion) {
+      return;
+    }
+    setLineIndex(0);
+    setText('');
+    setPhase('typing');
+  }, [active, reduceMotion]);
+
   // Typing / pause / deleting state machine
   useEffect(() => {
     if (reduceMotion || lines.length === 0) {
+      return;
+    }
+
+    if (!active) {
       return;
     }
 
@@ -95,6 +112,7 @@ export function TypeLine({
     deletingMs,
     pauseMs,
     reduceMotion,
+    active,
   ]);
 
   if (lines.length === 0) {
@@ -103,9 +121,10 @@ export function TypeLine({
 
   return (
     <p className={[styles.line, className].filter(Boolean).join(' ')}>
-      {reduceMotion ? (lines[0] ?? '') : text}
-      {/* Blinking cursor while animating */}
-      {!reduceMotion ? <span className={styles.cursor} aria-hidden="true" /> : null}
+      {reduceMotion ? (lines[0] ?? '') : active ? text : ''}
+      {!reduceMotion && active ? (
+        <span className={styles.cursor} aria-hidden="true" />
+      ) : null}
     </p>
   );
 }

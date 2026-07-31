@@ -4,3 +4,13 @@
   margin: 0 auto;
   padding: 0 var(--space-3) var(--space-6);
 }
+
+.shell {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.shellHidden {
+  opacity: 0;
+  pointer-events: none;
+}
