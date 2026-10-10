@@ -25,7 +25,7 @@ export type EducationItem = {
 export type WorkItem = {
   id: string;
   /** Links to shared company logo metadata */
-  companyId: 'compass' | 'squint' | 'emdoor';
+  companyId: 'leap' | 'compass' | 'squint' | 'emdoor';
   company: string; // localized display name
   role: string;
   location: string;

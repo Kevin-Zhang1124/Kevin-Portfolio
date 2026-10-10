@@ -1,13 +1,27 @@
 import type { WorkItem } from '../../types'
 
 export const zhWork: WorkItem[] = [
+  /** Leap Tools Inc */
+  {
+    id: 'leap-fullstack-intern',
+    companyId: 'leap',
+    company: 'Leap Tools Inc',
+    role: '全栈开发实习生（即将入职）',
+    location: '多伦多, 安大略, 加拿大',
+    start: '2027年 1月',
+    end: '2027年 4月',
+    bullets: [
+      '即将参与全栈应用开发，主要使用 TypeScript、React、Next.js、Python/Django 等技术，涉及前端开发及后端API开发',
+    ],
+    tech: ['typescript', 'react', 'nextjs', 'python'],
+  },
   /** Compass Digital */
   {
     id: 'work-1',
     companyId: 'compass',
     company: 'Compass Digital',
     role: '移动应用开发实习生',
-    location: '多伦多, 安大略， 加拿大',
+    location: '多伦多， 安大略， 加拿大',
     start: '2026年 5月',
     end: '2026年 8月',
     bullets: [
@@ -24,7 +38,7 @@ export const zhWork: WorkItem[] = [
     companyId: 'squint',
     company: 'Squint Cognition',
     role: '机器学习软件开发工程师',
-    location: '滑铁卢, 安大略, 加拿大',
+    location: '滑铁卢， 安大略， 加拿大',
     start: '2025年 9月',
     end: '2025年 12月',
     bullets: [

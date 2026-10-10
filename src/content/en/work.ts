@@ -2,6 +2,20 @@ import type { WorkItem } from '../../types'
 
 /** Work experience (English). Newest role first is a good default. */
 export const enWork: WorkItem[] = [
+  /** Leap Tools Inc */
+  {
+    id: 'leap-fullstack-intern',
+    companyId: 'leap',
+    company: 'Leap Tools Inc',
+    role: 'Incoming Full Stack Developer Intern',
+    location: 'Toronto, ON, Canada',
+    start: 'January 2027',
+    end: 'April 2027',
+    bullets: [
+      'Expected to work on full-stack applications using TypeScript, React, Next.js, Python/Django, and backend APIs.',
+    ],
+    tech: ['typescript', 'react', 'nextjs', 'python'],
+  },
   /** Compass Digital */
   {
     id: 'work-1',
